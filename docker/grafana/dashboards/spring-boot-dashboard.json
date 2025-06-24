@@ -1,0 +1,155 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "name": "Spring Boot Application",
+        "type": "graph",
+        "datasource": "Prometheus",
+        "targets": [
+          {
+            "expr": "jvm_memory_used_bytes{area=\"heap\"}",
+            "legendFormat": "Heap Memory",
+            "refId": "A"
+          },
+          {
+            "expr": "jvm_memory_used_bytes{area=\"nonheap\"}",
+            "legendFormat": "Non-Heap Memory",
+            "refId": "B"
+          },
+          {
+            "expr": "process_cpu_seconds_total",
+            "legendFormat": "CPU Usage",
+            "refId": "C"
+          },
+          {
+            "expr": "http_server_requests_seconds_count",
+            "legendFormat": "HTTP Requests",
+            "refId": "D"
+          }
+        ]
+      }
+    ]
+  },
+  "title": "Spring Boot Application Dashboard",
+  "uid": "spring-boot-dashboard",
+  "version": 1,
+  "schemaVersion": 27,
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "refresh": "5s",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Heap Memory Usage",
+      "targets": [
+        {
+          "expr": "jvm_memory_used_bytes{area=\"heap\"}",
+          "legendFormat": "Heap Memory",
+          "refId": "A"
+        }
+      ],
+      "xaxis": {
+        "mode": "time"
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": "Heap Memory",
+          "logBase": 1,
+          "min": 0
+        },
+        {
+          "format": "bytes",
+          "label": "Heap Memory",
+          "logBase": 1,
+          "min": 0
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "Non-Heap Memory Usage",
+      "targets": [
+        {
+          "expr": "jvm_memory_used_bytes{area=\"nonheap\"}",
+          "legendFormat": "Non-Heap Memory",
+          "refId": "B"
+        }
+      ],
+      "xaxis": {
+        "mode": "time"
+      },
+      "yaxes": [
+        {
+          "format": "bytes",
+          "label": "Non-Heap Memory",
+          "logBase": 1,
+          "min": 0
+        },
+        {
+          "format": "bytes",
+          "label": "Non-Heap Memory",
+          "logBase": 1,
+          "min": 0
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "CPU Usage",
+      "targets": [
+        {
+          "expr": "process_cpu_seconds_total",
+          "legendFormat": "CPU Usage",
+          "refId": "C"
+        }
+      ],
+      "xaxis": {
+        "mode": "time"
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": "CPU Usage",
+          "logBase": 1,
+          "min": 0
+        },
+        {
+          "format": "short",
+          "label": "CPU Usage",
+          "logBase": 1,
+          "min": 0
+        }
+      ]
+    },
+    {
+      "type": "graph",
+      "title": "HTTP Requests",
+      "targets": [
+        {
+          "expr": "http_server_requests_seconds_count",
+          "legendFormat": "HTTP Requests",
+          "refId": "D"
+        }
+      ],
+      "xaxis": {
+        "mode": "time"
+      },
+      "yaxes": [
+        {
+          "format": "short",
+          "label": "HTTP Requests",
+          "logBase": 1,
+          "min": 0
+        },
+        {
+          "format": "short",
+          "label": "HTTP Requests",
+          "logBase": 1,
+          "min": 0
+        }
+      ]
+    }
+  ]
+}
